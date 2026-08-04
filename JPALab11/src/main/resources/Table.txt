@@ -1,0 +1,16 @@
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (101,'Yug','yug@xyz.com','Blore',50000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (102,'Aadi','aadi@xyz.com','Del',20000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (103,'Manish','manish@xyz.com','Hyd',90000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (104,'Rahul','rahul@abc.com','Blore',10000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (105,'Anuj','anuj@xyz.com','Del',50000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (106,'Rohan','rohan@xyz.com','Hyd',40000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (107,'Mohan','mohan@abc.com','Blore',20000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (108,'Ranjan','ranjan@xyz.com','Blore',60000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (109,'Shyam','shyam@abc.com','Del',30000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (110,'Rohit','rohit@xyz.com','Blore',70000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (111,'Gaurav','gaurav@xyz.com','Hyd',20000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (112,'Anil','yug@xyz.com','Blore',80000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (113,'Harshit','yug@abc.com','Hyd',30000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (114,'Ranjeet','ranjeet@xyz.com','Blore',40000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (115,'Sri','sri@abc.com','Del',20000);
+insert into myemployee (eid,ename,eemail,ecity,esalary) values (116,'Nivas','nivas@xyz.com','Blore',10000);
