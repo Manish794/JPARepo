@@ -1,4 +1,4 @@
-package com.jpa.test.app;
+package com.jpa.test.app.nativ;
 
 import com.jpa.test.entity.Employee;
 import com.jpa.test.util.JPAUtil;
@@ -8,7 +8,7 @@ import jakarta.persistence.Query;
 
 import java.util.List;
 
-public class ReadAllWithJPQL {
+public class ReadByConditionWithNative {
     public static void main(String[] args) {
         EntityTransaction entityTransaction = null;
 
@@ -16,13 +16,16 @@ public class ReadAllWithJPQL {
             entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
 
-            Query query = entityManager.createQuery("FROM Employee em");
+            Query query = entityManager.createNativeQuery("select * from myemployee where ecity=?1 and esalary > ?2 order by ename asc", Employee.class);
+            query.setParameter(1, "Blore");
+            query.setParameter(2, 25000);
             List<Employee> employees = query.getResultList();
+
 
             if(employees == null || employees.isEmpty()){
                 System.out.println("No Record Found");
             } else {
-                employees.forEach(System.out::println);
+               employees.forEach(System.out::println);
             }
 
             entityTransaction.commit();

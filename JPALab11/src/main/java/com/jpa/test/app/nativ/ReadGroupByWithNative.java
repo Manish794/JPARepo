@@ -1,17 +1,16 @@
-package com.jpa.test.app;
+package com.jpa.test.app.nativ;
 
 import com.jpa.test.entity.Employee;
+import com.jpa.test.entity.EmployeeGroupByData;
 import com.jpa.test.util.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class ReadAllWithQBC {
+public class ReadGroupByWithNative {
     public static void main(String[] args) {
         EntityTransaction entityTransaction = null;
 
@@ -19,17 +18,17 @@ public class ReadAllWithQBC {
             entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
 
+            List<String> cities  = List.of("Blore","Hyd");
 
-            CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-            CriteriaQuery criteriaQuery =  criteriaBuilder.createQuery(Employee.class);
-            Root<Employee> root = criteriaQuery.from(Employee.class);
-            criteriaQuery.select(root);
-            List<Employee> employees = entityManager.createQuery(criteriaQuery).getResultList();
+            Query query = entityManager.createNativeQuery(" select ecity,count(*) as 'count',sum(esalary) as 'totalsal' from myemployee group by ecity having ecity in (?1);", EmployeeGroupByData.class);
+            query.setParameter(1, cities);
+
+            List<EmployeeGroupByData> employees = query.getResultList();
 
             if(employees == null || employees.isEmpty()){
                 System.out.println("No Record Found");
             } else {
-               employees.forEach(System.out::println);
+                employees.forEach(System.out::println);
             }
 
             entityTransaction.commit();

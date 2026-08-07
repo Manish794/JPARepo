@@ -16,6 +16,12 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name="getAll",
         query = "from Employee em"
+        ),
+        @NamedQuery(name="getByCityAndSal",
+                query = "from Employee em where em.city=?1 and em.salary>?2 order by em.name ASC"
+        ),
+        @NamedQuery(name="getCityWiseCountAndTotalSal",
+                query = "SELECT em.city, COUNT(em.salary), SUM(em.salary) FROM Employee em GROUP BY em.city HAVING em.city IN (?1)"
         )
 })
 
